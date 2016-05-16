@@ -2,6 +2,14 @@
 <head>
   <title>ES6 class test</title>
   <script type="text/javascript">
+  //  multi line string
+  var blogPost = `
+      ## My First Blog Post 
+
+      I like to write in Markdown!   
+  `
+  console.log(blogPost)
+  // TODO : enum 
   // simpleist class
   class Polygon0 {}
   class Polygon1 {
@@ -20,7 +28,7 @@
         this.height = height;
         this.width = width;
       }
-      
+      // 属性的读方法 ，可以使用.area 访问
       get area() {
         return this.calcArea();
       }
@@ -68,8 +76,8 @@
         console.log(this.name + ' barks.');
       }
     }
-    var d1 = new Animal("cat")
-    var d2 = new Dog("dog")
+    const d1 = new Animal("cat")
+    const d2 = new Dog("dog")
     d1.speak()
     d2.speak()
 </script>
