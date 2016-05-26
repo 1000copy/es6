@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Print Test</title>
+    <style type="text/css" media="print">
+    /* 页面设置是可以做的。不错不错。@page {
+  size: A4;
+}*/
+
+    @media print {
+       body {
+          color: #000;
+          background: #000;
+       }
+    }
+    html
+    {
+        background-color: #FFFFFF; 
+        margin: 0px;  /* this affects the margin on the html before sending to printer */
+    }
+
+    body
+    {
+        border: solid 1px blue ;
+        margin: 10mm 15mm 10mm 15mm; /* margin you want for the content */
+    }
+    </style>
+     <script type="text/javascript">
+     //  修改代码为异步，否则数据多了，界面冻结。
+        function a(){
+            var table = document.createElement('table');
+            table.setAttribute("class","printspan");
+            for (var i = 1; i < 400; i++){
+                var tr = document.createElement('tr');   
+
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+
+                var text1 = document.createTextNode('one'+i);
+                var text2 = document.createTextNode('two'+i);
+
+                td1.appendChild(text1);
+                td2.appendChild(text2);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+
+                table.appendChild(tr);
+            }
+            document.body.appendChild(table);
+        }
+       
+    </script>
+</head>
+<body onload="a()">
+  <div>Top line</div>
+  <div>Line 2</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+    <style type="text/css">
+        body {
+            margin: 25mm 25mm 25mm 0mm;
+        }
+        table { page-break-inside:auto }
+        tr    { page-break-inside:avoid; page-break-after:auto }
+</style>
+
+    <style type="text/css" media="screen">
+        .printspan
+        {
+            display: none;
+        }
+    </style>
+    <style type="text/css" media="print">
+        .printspan
+        {
+            display: inline;
+            font-family: Arial, sans-serif;
+            font-size: 16 pt;
+            color: red;
+        }
+    </style>
+    <!-- 在打印时动态生成（从服务器取），且仅仅对打印机可见，对显示器 -->
+    <script type="text/javascript">
+        function a(){
+            var table = document.createElement('table');
+            table.setAttribute("class","printspan");
+            for (var i = 1; i < 400; i++){
+                var tr = document.createElement('tr');   
+
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+
+                var text1 = document.createTextNode('one'+i);
+                var text2 = document.createTextNode('two'+i);
+
+                td1.appendChild(text1);
+                td2.appendChild(text2);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+
+                table.appendChild(tr);
+            }
+            document.body.appendChild(table);
+        }
+        function init(){
+            var beforePrint = function() {
+                console.log('Functionality to run before printing.');
+            };
+            var afterPrint = function() {
+                console.log('Functionality to run after printing');
+            };
+
+            if (window.matchMedia) {
+                var mediaQueryList = window.matchMedia('print');
+                mediaQueryList.addListener(function(mql) {
+                    if (mql.matches) {
+                        beforePrint();
+                    } else {
+                        afterPrint();
+                    }
+                });
+            }
+
+            window.onbeforeprint = beforePrint;
+            window.onafterprint = afterPrint;
+        }
+    </script>
+</head>
+<body onload="init()">
+    <p > you can see below text on print preview </p>
+    <p class="printspan"> look at me ,print </p>
+    <input type="button" value="print" onclick="a();window.print();"/>
+</body>

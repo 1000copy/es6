@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>tabs example111</title>
+    <title>tabs example</title>
 
     <style type="text/css">
       body { font-size: 80%; }
@@ -85,25 +85,31 @@
       var hashPos = url.lastIndexOf ( '#' );
       return url.substring( hashPos + 1 );
     }
-
+    class Tabs {
+      addTab(){}
+    }
+    const t = new Tabs()
+    t.addTab("about")
     //]]>
     </script>  
   </head>
   <body onload="init()">
-    <h1>  a</h1>dd
-    <ul id="tabs">
-      <li><a href="#about">About JavaScript tabs</a></li>
-      <li><a href="#advantages">Advantages of tabs</a></li>
-      <li><a href="#usage">Using tabs</a></li>
-    </ul>
-    <div class="tabContent" id="about">
-      <p>Click 1</p>
-    </div>
-    <div class="tabContent" id="advantages">
-      <p>Click 2</p>
-    </div>
-    <div class="tabContent" id="usage">
-        <p>Click 3</p>
+    <h1> fj</h1>f
+    <div>
+      <ul id="tabs">
+        <li><a href="#about">About JavaScript tabs</a></li>
+        <li><a href="#advantages">Advantages of tabs</a></li>
+        <li><a href="#usage">Using tabs</a></li> 
+      </ul>
+      <div class="tabContent" id="about">
+        <p>Click 1</p>
+      </div>
+      <div class="tabContent" id="advantages">
+        <p>Click 2</p>
+      </div>
+      <div class="tabContent" id="usage">
+          <p>Click 3</p>
+      </div>
     </div>
   </body>
 </html>
